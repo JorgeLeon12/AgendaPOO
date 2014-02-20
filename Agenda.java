@@ -48,7 +48,7 @@ public class Agenda{
 		}
 	}
 
-	public void recorrerDatosPosi(int i){
+	private void recorrerDatosPosi(int i){
 		Contacto copia1 = new Contacto();
 		Contacto copia2 = new Contacto();
 		Contacto copia3 = new Contacto();
@@ -95,7 +95,17 @@ public class Agenda{
 	public void buscarContacto(String buscar){
 		if(buscar != ""){
 			for(int i = 0; i<numContactos; i++){
-				if((this.contactos[i].getNombre().indexOf(buscar) != -1) ||(this.contactos[i].getApellidos().indexOf(buscar) != -1) ||(this.contactos[i].getCategoria().indexOf(buscar) != -1) ||(this.contactos[i].getCorreo().indexOf(buscar) != -1) ||(this.contactos[i].getTelefono().indexOf(buscar) != -1) ||(this.contactos[i].getCelular().indexOf(buscar) != -1) ||(this.contactos[i].getDireccion().indexOf(buscar) != -1) ||(this.contactos[i].getNota().indexOf(buscar) != -1)){
+				if(this.contactos[i].contiene(buscar) == true){
+					System.out.println(this.contactos[i].toString());
+				}
+			}
+		}else{
+			for(int i = 0; i<numContactos; i++){
+				System.out.println(this.contactos[i].toString());
+			}
+		}
+	}
+}||(this.contactos[i].getTelefono().indexOf(buscar) != -1) ||(this.contactos[i].getCelular().indexOf(buscar) != -1) ||(this.contactos[i].getDireccion().indexOf(buscar) != -1) ||(this.contactos[i].getNota().indexOf(buscar) != -1)){
 					System.out.println(this.contactos[i].toString());
 				}
 			}

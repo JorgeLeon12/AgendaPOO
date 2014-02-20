@@ -12,7 +12,7 @@ public class Contacto{
 		this.direccion = direccion;
 		this.nota = nota;
 	}
-	public void asignaDatos(String nombre,String apellidos,String categoria,String correo,String telefono,String celular,String direccion,String nota){
+	private void asignaDatos(String nombre,String apellidos,String categoria,String correo,String telefono,String celular,String direccion,String nota){
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.categoria = categoria;
