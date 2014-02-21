@@ -105,14 +105,4 @@ public class Agenda{
 			}
 		}
 	}
-}||(this.contactos[i].getTelefono().indexOf(buscar) != -1) ||(this.contactos[i].getCelular().indexOf(buscar) != -1) ||(this.contactos[i].getDireccion().indexOf(buscar) != -1) ||(this.contactos[i].getNota().indexOf(buscar) != -1)){
-					System.out.println(this.contactos[i].toString());
-				}
-			}
-		}else{
-			for(int i = 0; i<numContactos; i++){
-				System.out.println(this.contactos[i].toString());
-			}
-		}
-	}
 }
