@@ -2,17 +2,7 @@
 public class Contacto{
 	private String nombre, apellidos, categoria, correo, telefono, celular, direccion, nota;
 
-	public void Contacto(String nombre, String apellidos, String categoria, String correo, String telefono, String celular, String direccion, String nota){
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.categoria = categoria;
-		this.correo = correo;
-		this.telefono = telefono;
-		this.celular = celular;
-		this.direccion = direccion;
-		this.nota = nota;
-	}
-	private void asignaDatos(String nombre,String apellidos,String categoria,String correo,String telefono,String celular,String direccion,String nota){
+	public Contacto(String nombre, String apellidos, String categoria, String correo, String telefono, String celular, String direccion, String nota){
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.categoria = categoria;
@@ -111,4 +101,18 @@ public class Contacto{
 		}
 		return false;
 	}
+
+	//Metodos Extras:
+	/*
+	public void asignaDatos(String nombre,String apellidos,String categoria,String correo,String telefono,String celular,String direccion,String nota){
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.categoria = categoria;
+		this.correo = correo;
+		this.telefono = telefono;
+		this.celular = celular;
+		this.direccion = direccion;
+		this.nota = nota;
+	}
+	*/
 }
