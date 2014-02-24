@@ -15,6 +15,7 @@ public class Principal{
 				this.datos.agregarContacto(this.pideContacto());
 			}else if(seleccion == 2){
 				buscar = JOptionPane.showInputDialog(null, "Texto a buscar en la agenda:");
+				System.out.println("------------------------------------------------------------------------------------------------------------");
 				this.datos.buscarContacto(buscar);
 			}else if(seleccion == 3){
 				borrar = Integer.parseInt(JOptionPane.showInputDialog(null, "Posicion del contacto a eliminar:"));

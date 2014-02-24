@@ -22,32 +22,33 @@ public class Agenda{
 	public void agregarContacto(Contacto datos){
 		int res;
 		boolean ultimo = false;
-		
-
-
 		System.out.println(this.contactos.length + " *** " + this.numContactos);
 
-		if((this.numContactos) < this.contactos.length){
-			for(int i = 0; i<=this.numContactos;i++){
+		if((this.numContactos) < this.contactos.length){//ve si cabe el nuevo contacto
+			int i;
+			for(i = 0; i<=this.numContactos;i++){//parsea el arreglo
 				System.out.println(this.contactos[0].getApellidos() + " -- " + datos.getApellidos());
-				if(this.contactos[i].getApellidos() != datos.getApellidos()){
-					if((this.contactos[i].getApellidos().compareTo(datos.getApellidos()) < 0)){
+				if(this.contactos[i].getApellidos() != datos.getApellidos()){//ve que los apellidos sean diferentes
+					if((this.contactos[i].getApellidos().compareTo(datos.getApellidos()) < 0)){//ve si el apellido nuevo es igual al que esta parseando en el momento
 						ultimo = true;
 					}else{
-						this.recorrerDatosPosi(i);
-						this.contactos[i]/*asignaDatos*/ = new Contacto(datos.getNombre(), datos.getApellidos(), datos.getCategoria(), datos.getCorreo(), datos.getTelefono(), datos.getCelular(), datos.getDireccion(), datos.getNota()) ;
+						ultimo = false;
+						break;
 					}
-				}else{
-					if((this.contactos[i].getNombre().compareTo(datos.getNombre()) < 0)){
+				}else{//los apellidos son iguales
+					if((this.contactos[i].getNombre().compareTo(datos.getNombre()) < 0)){//ve si el nombre nuevo es igual al que esta parseando en el momento
 						ultimo = true;
 					}else{
-						this.recorrerDatosPosi(i);
-						this.contactos[i]/*asignaDatos*/ = new Contacto(datos.getNombre(), datos.getApellidos(), datos.getCategoria(), datos.getCorreo(), datos.getTelefono(), datos.getCelular(), datos.getDireccion(), datos.getNota()) ;
+						ultimo = false;
+						break;
 					}
 				}
 			}
 			if(ultimo == true){
 				this.contactos[this.numContactos]/*asignaDatos*/ = new Contacto(datos.getNombre(), datos.getApellidos(), datos.getCategoria(), datos.getCorreo(), datos.getTelefono(), datos.getCelular(), datos.getDireccion(), datos.getNota()) ;
+			}else{
+				this.recorrerDatosPosi(i);
+				this.contactos[i]/*asignaDatos*/ = new Contacto(datos.getNombre(), datos.getApellidos(), datos.getCategoria(), datos.getCorreo(), datos.getTelefono(), datos.getCelular(), datos.getDireccion(), datos.getNota()) ;
 			}
 			this.numContactos++;
 		}else{
@@ -59,7 +60,8 @@ public class Agenda{
 		if(this.contactos[borrar].getNombre() == "" || this.contactos[borrar].getNombre() == null){
 			return false;
 		}else{
-			this.contactos[borrar]/*asignaDatos*/ = new Contacto("","","","","","","","");
+			this.recorrerDatosNega(borrar);
+			//this.contactos[borrar]/*asignaDatos*/ = new Contacto("","","","","","","","");
 			this.numContactos--;
 			return true;
 		}
@@ -85,7 +87,7 @@ public class Agenda{
 
 
 	//Metodos Extras:
-	private void recorrerDatosPosi(int i){
+	/*private void recorrerDatosPosi(int i){
 		Contacto copia1 = new Contacto("","","","","","","","");
 		Contacto copia2 = new Contacto("","","","","","","","");
 		Contacto copia3 = new Contacto("","","","","","","","");
@@ -94,7 +96,7 @@ public class Agenda{
 		copia2 = this.contactos[i+1];
 		copia3 = this.contactos[i+2];
 
-		this.contactos[i]/*asignaDatos*/ = new Contacto("","","","","","","","");
+		this.contactos[i]/*asignaDatos*//* = new Contacto("","","","","","","","");
 		this.contactos[i+1] = copia1;
 		this.contactos[i+2] = copia2;
 
@@ -116,6 +118,16 @@ public class Agenda{
 			copia2 = this.contactos[i+4];
 
 			this.contactos[i+3] = copia3;
+		}
+	}*/
+	private void recorrerDatosPosi(int mover){
+		for(int i = this.numContactos - 1; i>=mover; i--){
+			this.contactos[i+1] = this.contactos[i];
+		}
+	}
+	private void recorrerDatosNega(int mover){
+		for(int i = mover; i <= (this.numContactos - 1); i++){
+			this.contactos[i] = this.contactos[i+1];
 		}
 	}
 }
