@@ -2,7 +2,7 @@ import javax.swing.*;
 public class Principal{
 
 	private Agenda datos;
-
+	
 	private Principal(){
 		this.datos = new Agenda();
 	}
@@ -27,18 +27,27 @@ public class Principal{
 	private Contacto pideContacto(){
 		String nombre = JOptionPane.showInputDialog(null, "Introduce el nombre:");
 		String apellidos = JOptionPane.showInputDialog(null, "Introduce los apellidos:");
-		String categoria = "Familia";// = JOptionPane.showInputDialog(null, "Introduce la categoria:");
-		String correo = "JorgeLeon12";// = JOptionPane.showInputDialog(null, "Introduce el correo:");
-		String telefono = "16571275";// = JOptionPane.showInputDialog(null, "Introduce el telefono:");
-		String celular = "3331752347";// = JOptionPane.showInputDialog(null, "Introduce el celular:");
-		String direccion = "Fco";// = JOptionPane.showInputDialog(null, "Introduce la direccion:");
-		String nota = "test";// = JOptionPane.showInputDialog(null, "Introduce la nota:");
+		String categoria = JOptionPane.showInputDialog(null, "Introduce la categoria:");
+		String correo = JOptionPane.showInputDialog(null, "Introduce el correo:");
+		String telefono = JOptionPane.showInputDialog(null, "Introduce el telefono:");
+		String celular = JOptionPane.showInputDialog(null, "Introduce el celular:");
+		String direccion = JOptionPane.showInputDialog(null, "Introduce la direccion:");
+		String nota = JOptionPane.showInputDialog(null, "Introduce la nota:");
 		Contacto temporal = new Contacto(nombre, apellidos, categoria, correo, telefono, celular, direccion, nota);
 		return temporal;
 	}
 
 	public static void main(String[] args){
 		Principal agendita = new Principal();
+		System.out.println("////////////////////////////////////////");
+		System.out.println("///     Jorge Enrique Moreno León    ///");
+		System.out.println("///             A01226804            ///");
+		System.out.println("///                                  ///");
+		System.out.println("///           Fernando Rubio         ///");
+		System.out.println("///             A012            ///");
+		System.out.println("/// Programacion Orientada a Objetos ///");
+		System.out.println("////////////////////////////////////////");
+		System.out.println();
 		agendita.imprimeMenu();
 	}
 }
